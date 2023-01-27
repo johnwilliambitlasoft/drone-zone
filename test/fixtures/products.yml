@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_name: MyString
+  product_type: MyString
+  product_accessories: MyString
+  product_description: MyString
+  per_day_price: 
+  product_available_from_date: 
+  product_available_to_date: 
+
+two:
+  product_name: MyString
+  product_type: MyString
+  product_accessories: MyString
+  product_description: MyString
+  per_day_price: 
+  product_available_from_date: 
+  product_available_to_date: 

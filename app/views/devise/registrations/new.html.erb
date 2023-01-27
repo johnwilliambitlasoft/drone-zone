@@ -1,0 +1,201 @@
+<style type="text/css">
+  *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+    //background-color: #fff;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: auto;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+em{
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+input[type=checkbox]{
+    height: 17px;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button,input[type=submit]{
+    margin-top: 15px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 10px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social div:nth-child(2){
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+.links{
+  margin-top: 5px;
+}
+.link_list{
+  font-size: 14px;
+}
+</style>
+<style type="text/css">
+    .brand-name-font p{
+        font-family: 'Figtree', sans-serif;
+        color: #FFF;
+        font-weight: 900;
+        font-size: 105px;
+        position: relative;
+        top: 151px;
+        right: 426px;
+        line-height: 88px;
+        text-align: right;
+    }
+    .brand-name-font p span{
+        color:  #080710 !important;
+        text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
+    }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@900&display=swap" rel="stylesheet">
+<div class="background">
+    <div class="shape"></div>
+    <div class="brand-name-font">
+        <p>DRONE<br><span>ZONE</span></p>
+    </div>
+    <%= image_tag("min2.png", :style => 'position: relative; bottom: 209px; height: 100%; left: 199px;')%>
+    <div class="shape"></div>
+</div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+    <h3>Sign up</h3>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+    <%= f.submit "Sign up" %>
+    <div class="social">
+        <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+                <div class="go"><i class="fab fa-google"></i> <%= link_to "Google", omniauth_authorize_path(resource_name, provider), method: :post %> </div>
+            <% end %>
+        <% end %>
+        <div class="fb"><i class="fa-solid fa-right-to-bracket"></i> <%= link_to "Log in", new_session_path(resource_name) %> </div>
+    </div>
+      <%= render "devise/shared/links" %>
+<%end%>
+
+
+
